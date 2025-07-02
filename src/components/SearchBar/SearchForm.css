@@ -1,0 +1,45 @@
+.search-bar__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .search-bar__form {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .search-bar__form {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.search-bar__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid darkgray;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.search-bar input {
+    background-color: transparent;
+    font-family: GothamSSm, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    color: var(--black);
+    border-radius: 0.5rem;
+}
+
+.search-bar__form-submit {
+    background-color: var(--blumine);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-family: GothamSSm, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+}

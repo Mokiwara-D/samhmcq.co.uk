@@ -15,6 +15,7 @@ const Header = () => {
         <div className="header__logos">
           <img src={abta} alt="ABTA logo" />
           <img src={atol} alt="ATOL logo" />
+          <h2>ATOL<br/>Protected</h2>
         </div>
       </div>
     </header>

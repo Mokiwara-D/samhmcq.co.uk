@@ -8,21 +8,36 @@
     justify-content: space-between;
 }
 
+/* TODO: size logos by height of header__container */
 .header__logo img {
     width: auto;
     height: 4rem;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 .header__logos {
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__logos img:nth-child(1) {
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+
+.header__logos h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
 }
 
 .header__logos img {
     width: auto;
     height: 3rem;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 @media (max-width: 768px) {
