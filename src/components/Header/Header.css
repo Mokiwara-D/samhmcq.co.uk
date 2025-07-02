@@ -1,0 +1,42 @@
+.header {
+    padding: 2rem 4rem;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo img {
+    width: auto;
+    height: 4rem;
+    object-fit: contain;
+}
+
+.header__logos {
+    display: flex;
+    gap: 1rem;
+}
+
+.header__logos img {
+    width: auto;
+    height: 3rem;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .header__container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header__logo img {
+        height: 6rem;
+    }
+
+    .header__logos {
+        display: none;
+    }
+}

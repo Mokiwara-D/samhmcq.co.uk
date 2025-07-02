@@ -4,8 +4,13 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgb(34, 34, 34);
+  background-color: rgb(246, 246, 246);
+  --selective-yellow: #fbba00;
+  --regal-blue: #00437a;
+  --blumine: #195687;
+  --midnight-blue: #003662;
+  --container-width: 1440px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
