@@ -1,6 +1,13 @@
 .search-bar__options {
     display: flex;
     gap: 2rem;
+    scale: 0.8;
+}
+
+@media (min-width: 768px) {
+    .search-bar__options {
+        scale: 1;
+    }
 }
 
 .search-bar__options button {
