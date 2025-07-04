@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   margin: 0;
-  padding: 4rem;
+  padding: 4rem clamp(1rem, 4vw, 4rem);
   background-color: rgb(34, 34, 34);
   color: rgb(246, 246, 246);
 }

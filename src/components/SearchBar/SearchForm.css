@@ -28,7 +28,6 @@
 
 .search-bar input {
     background-color: transparent;
-    font-family: GothamSSm, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-weight: 200;
     color: var(--black);
     border-radius: 0.5rem;
@@ -39,7 +38,6 @@
     color: white;
     border: none;
     border-radius: 0.5rem;
-    font-family: GothamSSm, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
 }

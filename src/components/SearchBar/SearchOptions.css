@@ -1,20 +1,12 @@
 .search-bar__options {
     display: flex;
     gap: 2rem;
-    scale: 0.8;
-}
-
-@media (min-width: 768px) {
-    .search-bar__options {
-        scale: 1;
-    }
 }
 
 .search-bar__options button {
     background-color: transparent;
     border: none;
     font-size: 1rem;
-    font-family: GothamSSm, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-weight: 500;
     color: var(--blumine);
     display: flex;
@@ -22,21 +14,32 @@
     align-items: center;
     justify-content: center;
     gap: 0.05rem;
-    width: 8rem;
+    width: 5rem;
     height: 4rem;
-    white-space: nowrap;
-    opacity: 0.5;
+    white-space: wrap;
+    opacity: 0.8;
     will-change: opacity, transform;
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .search-bar__options button.selected {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .search-bar__options button img {
     width: 1.8rem;
-    height: auto;
+    height: 1.8rem;
     object-fit: contain;
+}
+
+@media (min-width: 768px) {
+    .search-bar__options {
+        gap: 1rem;
+    }
+
+    .search-bar__options button {
+        width: 8rem;
+        white-space: nowrap;
+    }
 }
