@@ -1,17 +1,11 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: GothamSSm, Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  overflow-x: hidden;
 
   color-scheme: light dark;
-  color: rgb(34, 34, 34);
-  background-color: rgb(246, 246, 246);
-  --selective-yellow: #fbba00;
-  --regal-blue: #00437a;
-  --blumine: #195687;
-  --midnight-blue: #003662;
-  --container-width: 1440px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
