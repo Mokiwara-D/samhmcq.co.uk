@@ -5,6 +5,11 @@
     width: 100%;
 }
 
+.search-bar__form-group,
+.search-bar__form-submit {
+    min-height: 4rem;
+}
+
 .search-bar__form-group {
     display: flex;
     flex-direction: column;

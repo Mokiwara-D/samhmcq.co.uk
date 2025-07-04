@@ -1,19 +1,26 @@
 .header {
-    padding: 2rem clamp(1rem, 4vw, 4rem);
+    padding: 1rem 2rem;
     width: 100%;
+    height: 8rem;
     max-width: var(--container-width);
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header__container {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* TODO: size logos by height of header__container */
 .header__logo img {
-    width: auto;
-    height: 4rem;
+    width: 100%;
+    min-width: 16rem;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -22,11 +29,13 @@
     gap: 0.5rem;
     align-items: center;
     justify-content: center;
+    width: fit-content;
+    height: 3rem;
 }
 
 .header__logos img {
-    width: auto;
-    height: 3rem;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
