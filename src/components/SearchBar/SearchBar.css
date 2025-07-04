@@ -5,11 +5,20 @@
     gap: 1rem;
     padding: 1rem 1rem;
     margin-bottom: 2rem;
-    background-color: whitesmoke;
-    border: 1px solid darkgray;
+    background-color: rgb(245, 247, 250);
+    border: 1.5px solid var(--blumine);
     border-radius: 0.5rem;
+    width: 100%;
+    overflow-x: hidden;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .search-bar button {
     cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .search-bar {
+        width: fit-content;
+    }
 }
