@@ -5,14 +5,15 @@
     gap: 1rem;
     padding: 1rem 1rem;
     margin-bottom: 2rem;
-    background-color: rgb(245, 247, 250);
-    border: 1.5px solid var(--blumine);
+    background-color: rgb(250, 251, 253);
+    border-top: var(--border);
+    border-bottom: var(--border);
     border-left: none;
     border-right: none;
     border-radius: 0rem;
     width: 100%;
     overflow-x: hidden;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 .search-bar button {
@@ -21,8 +22,8 @@
 
 @media (min-width: 370px) {
     .search-bar {
-        border-left: 1.5px solid var(--blumine);
-        border-right: 1.5px solid var(--blumine);
+        border-left: var(--border);
+        border-right: var(--border);
         border-radius: 0.5rem;
     }
 }

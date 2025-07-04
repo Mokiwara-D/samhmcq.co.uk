@@ -29,11 +29,11 @@
     opacity: 0.8;
     will-change: background-color, color, transform;
     transition: background-color 0.3s ease-out, color 0.3s ease-out, transform 0.3s ease-out;
-    border: 1.5px solid var(--blumine);
-    border-radius: 0.5rem;
+    border: var(--border);
+    border-radius: var(--border-radius);
     padding: 0.5rem 0.6rem;
     cursor: pointer;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     overflow: hidden;
 }
 

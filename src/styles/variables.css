@@ -7,4 +7,8 @@
     --midnight-blue: #003662;
 
     --container-width: 1440px;
+
+    --shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    --border: 2px solid var(--blumine);
+    --border-radius: 0.5rem;
 }
