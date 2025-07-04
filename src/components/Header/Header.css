@@ -1,5 +1,7 @@
 .header {
     padding: 2rem clamp(1rem, 4vw, 4rem);
+    width: 100%;
+    max-width: var(--container-width);
 }
 
 .header__container {
@@ -12,7 +14,7 @@
 .header__logo img {
     width: auto;
     height: 4rem;
-    object-fit: fill;
+    object-fit: contain;
 }
 
 .header__logos {
@@ -20,6 +22,12 @@
     gap: 0.5rem;
     align-items: center;
     justify-content: center;
+}
+
+.header__logos img {
+    width: auto;
+    height: 3rem;
+    object-fit: contain;
 }
 
 .header__logos img:nth-child(1) {
@@ -32,12 +40,6 @@
     font-weight: 700;
     line-height: 1.2;
     margin: 0;
-}
-
-.header__logos img {
-    width: auto;
-    height: 3rem;
-    object-fit: fill;
 }
 
 @media (max-width: 768px) {

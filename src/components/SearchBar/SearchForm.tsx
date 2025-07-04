@@ -20,11 +20,26 @@ interface SearchFormProps {
 }
 
 const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormProps) => {
+  // Temporary location options
+  const departureOptions = useMemo(() => [
+    { value: '', label: 'Select departure location' },
+    { value: 'london', label: 'London, UK' },
+    { value: 'manchester', label: 'Manchester, UK' },
+    { value: 'birmingham', label: 'Birmingham, UK' }
+  ], []);
+
+  const destinationOptions = useMemo(() => [
+    { value: '', label: 'Select destination' },
+    { value: 'paris', label: 'Paris, France' },
+    { value: 'rome', label: 'Rome, Italy' },
+    { value: 'barcelona', label: 'Barcelona, Spain' }
+  ], []);
+
   const { todayDate, tomorrowDate } = useMemo(() => {
     const today = new Date();
     const tomorrow = new Date(today);
     tomorrow.setDate(today.getDate() + 1);
-    
+
     return {
       todayDate: today.toISOString().split('T')[0],
       tomorrowDate: tomorrow.toISOString().split('T')[0]
@@ -36,11 +51,11 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
     onSubmit(searchInput);
   }, [onSubmit, searchInput]);
 
-  const handleDepartureChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDepartureChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     setSearchInput({ ...searchInput, departure: e.target.value });
   }, [searchInput, setSearchInput]);
 
-  const handleDestinationChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDestinationChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     setSearchInput({ ...searchInput, destination: e.target.value });
   }, [searchInput, setSearchInput]);
 
@@ -54,88 +69,104 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
 
   const handleAdultsChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.max(1, parseInt(e.target.value) || 1);
-    setSearchInput({ 
-      ...searchInput, 
+    setSearchInput({
+      ...searchInput,
       passengers: { ...searchInput.passengers, adults: value }
     });
   }, [searchInput, setSearchInput]);
 
   const handleChildrenChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.max(0, parseInt(e.target.value) || 0);
-    setSearchInput({ 
-      ...searchInput, 
+    setSearchInput({
+      ...searchInput,
       passengers: { ...searchInput.passengers, children: value }
     });
   }, [searchInput, setSearchInput]);
 
   return (
     <form className="search-bar__form" onSubmit={handleSubmit}>
-      {/* TODO: Add destination and departure date input */}
       <div className="search-bar__form-group">
-      <label htmlFor="departure">Departure Location</label>
-      <input
-        id="departure"
-        type="text"
-        placeholder="TEMP INPUT"
-        value={searchInput.departure}
-        onChange={handleDepartureChange}
-        aria-label="Departure location"
-      />
+        <label htmlFor="departure">Departure Location</label>
+        <select
+          id="departure"
+          value={searchInput.departure}
+          onChange={handleDepartureChange}
+          aria-label="Departure location"
+          required
+        >
+          {departureOptions.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="search-bar__form-group">
-      <label htmlFor="destination">Destination Location</label>
-      <input
-        id="destination"
-        type="text"
-        placeholder="TEMP INPUT"
-        value={searchInput.destination}
-        onChange={handleDestinationChange}
-        aria-label="Destination location"
-      />
+        <label htmlFor="destination">Destination Location</label>
+        <select
+          id="destination"
+          value={searchInput.destination}
+          onChange={handleDestinationChange}
+          aria-label="Destination location"
+          required
+        >
+          {destinationOptions.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="search-bar__form-group">
-      <label htmlFor="departure-date">Departure Date</label>
-      <input
-        id="departure-date"
-        type="date"
-        value={searchInput.departureDate || todayDate}
-        min={todayDate}
-        onChange={handleDepartureDateChange}
-        aria-label="Departure date"
-      />
+        <label htmlFor="departure-date">Departure Date</label>
+        <input
+          id="departure-date"
+          type="date"
+          value={searchInput.departureDate || todayDate}
+          min={todayDate}
+          onChange={handleDepartureDateChange}
+          aria-label="Departure date"
+        />
       </div>
       <div className="search-bar__form-group">
-      <label htmlFor="return-date">Return Date</label>
-      <input
-        id="return-date"
-        type="date"
-        value={searchInput.returnDate || tomorrowDate}
-        min={searchInput.departureDate || tomorrowDate}
-        onChange={handleReturnDateChange}
-        aria-label="Return date"
-      />
+        <label htmlFor="return-date">Return Date</label>
+        <input
+          id="return-date"
+          type="date"
+          value={searchInput.returnDate || tomorrowDate}
+          min={searchInput.departureDate || tomorrowDate}
+          onChange={handleReturnDateChange}
+          aria-label="Return date"
+        />
       </div>
       <div className="search-bar__form-group">
-      <label htmlFor="adults">Passengers</label>
-      <input
-        id="adults"
-        type="number"
-        value={searchInput.passengers.adults}
-        onChange={handleAdultsChange}
-        min={1}
-        max={99}
-        aria-label="Number of adults"
-      />
-      <label htmlFor="children">Children</label>
-      <input
-        id="children"
-        type="number"
-        value={searchInput.passengers.children}
-        onChange={handleChildrenChange}
-        min={0}
-        max={99}
-        aria-label="Number of children"
-      />
+        <label htmlFor="passengers">Passengers</label>
+        <div className="search-bar__form--passengers">
+          <div className="search-bar__form--adults">
+            <label htmlFor="adults">Adults: </label>
+            <input
+              id="adults"
+              type="number"
+              value={searchInput.passengers.adults}
+              onChange={handleAdultsChange}
+              min={1}
+              max={99}
+              aria-label="Number of adults"
+            />
+          </div>
+          <div className="search-bar__form--children">
+            <label htmlFor="children">Children: </label>
+            <input
+              id="children"
+              type="number"
+              value={searchInput.passengers.children}
+              onChange={handleChildrenChange}
+              min={0}
+              max={99}
+              aria-label="Number of children"
+            />
+          </div>
+        </div>
       </div>
       <button type="submit" className="search-bar__form-submit">SEARCH</button>
     </form>

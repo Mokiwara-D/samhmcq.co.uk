@@ -3,8 +3,11 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 1rem 4vw;
+    padding: 1rem 1rem;
     margin-bottom: 2rem;
+    background-color: whitesmoke;
+    border: 1px solid darkgray;
+    border-radius: 0.5rem;
 }
 
 .search-bar button {
