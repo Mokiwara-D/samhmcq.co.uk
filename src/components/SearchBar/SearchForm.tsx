@@ -149,7 +149,7 @@ const SearchForm = memo(({ searchInput, dispatch, onSubmit }: SearchFormProps) =
         </div>
       </div>
       <button type="submit" className={styles.formSubmit}>
-        <img src={searchIcon} alt="Search" />
+        <img src={searchIcon} alt="Search Icon" />
         SEARCH
       </button>
     </form>

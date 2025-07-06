@@ -10,19 +10,19 @@ const SearchOptions = ({ selectedOption, dispatch }: { selectedOption: string, d
       <button
         className={selectedOption === 'flightHotel' ? styles.selected : ''}
         onClick={() => dispatch({ type: 'UPDATE_OPTION', payload: 'flightHotel' })}>
-        <img src={flightHotel} alt="Flight & Hotel" />
+        <img src={flightHotel} alt="Flight & Hotel Icon" />
         <span>Flight & Hotel</span>
       </button>
       <button
         className={selectedOption === 'city' ? styles.selected : ''}
         onClick={() => dispatch({ type: 'UPDATE_OPTION', payload: 'city' })}>
-        <img src={city} alt="City Breaks" />
+        <img src={city} alt="City Breaks Icon" />
         <span>City Breaks</span>
       </button>
       <button
         className={selectedOption === 'package' ? styles.selected : ''}
         onClick={() => dispatch({ type: 'UPDATE_OPTION', payload: 'package' })}>
-        <img src={pkg} alt="Package Holidays" />
+        <img src={pkg} alt="Package Holidays Icon" />
         <span>Package Holidays</span>
       </button>
     </div>
