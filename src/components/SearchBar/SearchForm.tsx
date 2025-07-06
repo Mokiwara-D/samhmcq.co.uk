@@ -1,4 +1,10 @@
 import './SearchForm.css'
+import planeIcon from '../../assets/images/Plane.svg'
+import locationIcon from '../../assets/images/Location.svg'
+import calendarIcon from '../../assets/images/calendar.svg'
+import nightIcon from '../../assets/images/Nights.svg'
+import passengersIcon from '../../assets/images/passengers.svg'
+import searchIcon from '../../assets/images/search-icon.svg'
 
 import React, { memo, useCallback, useMemo } from 'react';
 
@@ -86,6 +92,7 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
   return (
     <form className="search-bar__form" onSubmit={handleSubmit}>
       <div className="search-bar__form-group">
+        <img src={planeIcon} alt="Plane" />
         <label htmlFor="departure">Departure Location</label>
         <select
           id="departure"
@@ -102,6 +109,7 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
         </select>
       </div>
       <div className="search-bar__form-group">
+        <img src={locationIcon} alt="Location" />
         <label htmlFor="destination">Destination Location</label>
         <select
           id="destination"
@@ -118,6 +126,7 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
         </select>
       </div>
       <div className="search-bar__form-group">
+        <img src={calendarIcon} alt="Calendar" />
         <label htmlFor="departure-date">Departure Date</label>
         <input
           id="departure-date"
@@ -129,6 +138,7 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
         />
       </div>
       <div className="search-bar__form-group">
+        <img src={nightIcon} alt="Return" />
         <label htmlFor="return-date">Return Date</label>
         <input
           id="return-date"
@@ -140,6 +150,7 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
         />
       </div>
       <div className="search-bar__form-group">
+        <img src={passengersIcon} alt="Passengers" />
         <label htmlFor="passengers">Passengers</label>
         <div className="search-bar__form--passengers">
           <div className="search-bar__form--adults">
@@ -168,7 +179,10 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
           </div>
         </div>
       </div>
-      <button type="submit" className="search-bar__form-submit">SEARCH</button>
+      <button type="submit" className="search-bar__form-submit">
+        <img src={searchIcon} alt="Search" />
+        SEARCH
+      </button>
     </form>
   );
 });

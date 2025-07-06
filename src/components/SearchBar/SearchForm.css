@@ -5,6 +5,12 @@
     width: 100%;
 }
 
+.search-bar__form img {
+    width: auto;
+    height: 1.5rem;
+    object-fit: contain;
+}
+
 .search-bar__form-group,
 .search-bar__form-submit {
     min-height: 4rem;
@@ -85,12 +91,20 @@ input[type="number"]::-webkit-inner-spin-button {
     border-radius: 0.5rem;
     font-size: 1.2rem;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 @media (min-width: 768px) {
     .search-bar__form {
         grid-template-columns: repeat(3, 1fr);
         max-width: 60rem;
+    }
+
+    .search-bar__form-group img {
+        display: none;
     }
 }
 
