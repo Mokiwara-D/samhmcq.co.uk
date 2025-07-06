@@ -1,4 +1,4 @@
-.search-bar {
+.searchBar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,12 +16,12 @@
     box-shadow: var(--shadow);
 }
 
-.search-bar button {
+.searchBar button {
     cursor: pointer;
 }
 
 @media (min-width: 370px) {
-    .search-bar {
+    .searchBar {
         border-left: var(--border);
         border-right: var(--border);
         border-radius: 0.5rem;
@@ -29,7 +29,7 @@
 }
 
 @media (min-width: 768px) {
-    .search-bar {
+    .searchBar {
         width: fit-content;
     }
 }

@@ -1,4 +1,4 @@
-import './SearchBar.css'
+import styles from './SearchBar.module.css'
 import SearchOptions from './SearchOptions'
 import SearchForm from './SearchForm'
 import { useState } from 'react';
@@ -31,7 +31,7 @@ const SearchBar = () => {
   }
 
   return (
-    <section className="search-bar">
+    <section className={styles.searchBar}>
       <SearchOptions />
       <SearchForm searchInput={searchInput} setSearchInput={setSearchInput} onSubmit={handleSubmit} />
     </section>

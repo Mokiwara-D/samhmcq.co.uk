@@ -1,4 +1,4 @@
-.search-bar__options {
+.options {
     display: flex;
     gap: 1rem;
     overflow-x: hidden;
@@ -11,7 +11,7 @@
     -ms-overflow-style: none;
 }
 
-.search-bar__options button {
+.options button {
     background-color: transparent;
     border: none;
     font-size: 0.875rem;
@@ -36,7 +36,7 @@
     box-shadow: var(--shadow);
 }
 
-.search-bar__options button img {
+.options button img {
     flex-shrink: 0;
     aspect-ratio: 1/1;
     max-width: 1.5rem;
@@ -45,25 +45,25 @@
     transition: filter 0.3s ease-out;
 }
 
-.search-bar__options button.selected {
+.options button.selected {
     opacity: 1;
     transform: translateY(-3px);
     background-color: var(--blumine);
     color: white;
 }
 
-.search-bar__options button.selected img {
+.options button.selected img {
     filter: brightness(0) invert(1);
 }
 
 @media (min-width: 768px) {
-    .search-bar__options button {
+    .options button {
         font-size: 0.875rem;
         width: 9rem;
         white-space: nowrap;
     }
 
-    .search-bar__options button img {
+    .options button img {
         max-width: 1.8rem;
         max-height: 1.8rem;
     }

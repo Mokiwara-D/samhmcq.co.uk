@@ -1,25 +1,25 @@
-.search-bar__form {
+.form {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
     width: 100%;
 }
 
-.search-bar__form img {
+.form img {
     width: auto;
     height: 1.5rem;
     object-fit: contain;
 }
 
-.search-bar__form-group,
-.search-bar__form-submit {
+.formGroup,
+.formSubmit {
     min-height: 4rem;
 }
 
-.search-bar__form-group {
+.formGroup {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
     width: 100%;
     border: var(--border);
@@ -27,22 +27,33 @@
     padding: 0.5rem;
     border-radius: var(--border-radius);
     cursor: pointer;
+}
+
+.formGroupContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
     text-wrap: nowrap;
 }
 
-.search-bar__form--passengers {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 0.5rem;
+.formGroup:nth-child(1) img {
+    scale: 1.6;
 }
 
-.search-bar__form--passengers input {
+.formGroup:nth-child(5) input {
     max-width: 1.5rem;
 }
 
-.search-bar__form--adults,
-.search-bar__form--children {
+.passengersControls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.adults,
+.children {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,8 +62,8 @@
     gap: 0.5rem;
 }
 
-.search-bar input,
-.search-bar select {
+.form input,
+.form select {
     background-color: transparent;
     font-weight: 200;
     color: var(--text-color);
@@ -63,7 +74,8 @@
     cursor: pointer;
 }
 
-.search-bar select {
+/* Temp fix for select input made with AI */
+.form select {
     appearance: none;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
@@ -72,19 +84,20 @@
     padding-right: 2rem;
 }
 
-.search-bar select:focus,
-.search-bar input:focus {
+.form select:focus,
+.form input:focus {
     outline: 2px solid var(--blumine);
     outline-offset: 2px;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+/* Temp fix for number input made with AI */
+.form input[type="number"]::-webkit-outer-spin-button,
+.form input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.search-bar__form-submit {
+.formSubmit {
     background-color: var(--blumine);
     color: white;
     border: none;
@@ -98,18 +111,18 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 @media (min-width: 768px) {
-    .search-bar__form {
+    .form {
         grid-template-columns: repeat(3, 1fr);
         max-width: 60rem;
     }
 
-    .search-bar__form-group img {
+    .formGroup img {
         display: none;
     }
 }
 
 @media (min-width: 1440px) {
-    .search-bar__form {
+    .form {
         width: 100%;
         max-width: var(--container-width);
         grid-template-columns: repeat(6, 1fr);
