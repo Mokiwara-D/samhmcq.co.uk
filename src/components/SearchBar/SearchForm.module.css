@@ -14,6 +14,9 @@
 .formGroup,
 .formSubmit {
     min-height: 4rem;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 .formGroup {
@@ -22,10 +25,8 @@
     align-items: center;
     gap: 0.5rem;
     width: 100%;
-    border: var(--border);
     background-color: var(--bg-color);
     padding: 0.5rem;
-    border-radius: var(--border-radius);
     cursor: pointer;
 }
 

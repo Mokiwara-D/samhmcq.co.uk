@@ -8,7 +8,8 @@
 
     --container-width: 1440px;
 
-    --shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    --border: 1.75px solid var(--blumine);
+    --shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    --shadow-selected: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    --border: 0px solid var(--blumine);
     --border-radius: 0.5rem;
 }

@@ -5,37 +5,20 @@ import calendarIcon from '../../assets/images/calendar.svg'
 import nightIcon from '../../assets/images/Nights.svg'
 import passengersIcon from '../../assets/images/passengers.svg'
 import searchIcon from '../../assets/images/search-icon.svg'
-
 import React, { memo, useCallback, useMemo } from 'react';
-
-interface SearchInput {
-  departure: string;
-  destination: string;
-  departureDate: string;
-  returnDate: string;
-  passengers: {
-    adults: number;
-    children: number;
-  };
-}
+import type { SearchInput, SearchAction } from './searchTypes';
 
 interface SearchFormProps {
   searchInput: SearchInput;
-  setSearchInput: (input: SearchInput) => void;
+  dispatch: React.Dispatch<SearchAction>;
   onSubmit: (input: SearchInput) => void;
 }
 
-const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormProps) => {
+const SearchForm = memo(({ searchInput, dispatch, onSubmit }: SearchFormProps) => {
   // Temporary location options made with AI
-  const departureOptions = useMemo(() => [
-    { value: '', label: 'Select departure location' },
-    { value: 'london', label: 'London, UK' },
-    { value: 'manchester', label: 'Manchester, UK' },
-    { value: 'birmingham', label: 'Birmingham, UK' }
-  ], []);
-
-  const destinationOptions = useMemo(() => [
+  const locationOptions = useMemo(() => [
     { value: '', label: 'Select destination' },
+    { value: 'london', label: 'London, UK' },
     { value: 'paris', label: 'Paris, France' },
     { value: 'rome', label: 'Rome, Italy' },
     { value: 'barcelona', label: 'Barcelona, Spain' }
@@ -57,37 +40,15 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
     onSubmit(searchInput);
   }, [onSubmit, searchInput]);
 
-  const handleDepartureChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSearchInput({ ...searchInput, departure: e.target.value });
-  }, [searchInput, setSearchInput]);
-
-  const handleDestinationChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSearchInput({ ...searchInput, destination: e.target.value });
-  }, [searchInput, setSearchInput]);
-
-  const handleDepartureDateChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchInput({ ...searchInput, departureDate: e.target.value });
-  }, [searchInput, setSearchInput]);
-
-  const handleReturnDateChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchInput({ ...searchInput, returnDate: e.target.value });
-  }, [searchInput, setSearchInput]);
-
   const handleAdultsChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.max(1, parseInt(e.target.value) || 1);
-    setSearchInput({
-      ...searchInput,
-      passengers: { ...searchInput.passengers, adults: value }
-    });
-  }, [searchInput, setSearchInput]);
+    dispatch({ type: 'UPDATE_ADULTS', payload: value });
+  }, [dispatch]);
 
   const handleChildrenChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.max(0, parseInt(e.target.value) || 0);
-    setSearchInput({
-      ...searchInput,
-      passengers: { ...searchInput.passengers, children: value }
-    });
-  }, [searchInput, setSearchInput]);
+    dispatch({ type: 'UPDATE_CHILDREN', payload: value });
+  }, [dispatch]);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -98,11 +59,11 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
           <select
             id="departure"
             value={searchInput.departure}
-            onChange={handleDepartureChange}
+            onChange={(e) => dispatch({ type: 'UPDATE_DEPARTURE', payload: e.target.value })}
             aria-label="Departure location"
             required
           >
-            {departureOptions.map(option => (
+            {locationOptions.map(option => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -117,11 +78,11 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
           <select
             id="destination"
             value={searchInput.destination}
-            onChange={handleDestinationChange}
+            onChange={(e) => dispatch({ type: 'UPDATE_DESTINATION', payload: e.target.value })}
             aria-label="Destination location"
             required
           >
-            {destinationOptions.map(option => (
+            {locationOptions.map(option => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -138,7 +99,7 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
             type="date"
             value={searchInput.departureDate || todayDate}
             min={todayDate}
-            onChange={handleDepartureDateChange}
+            onChange={(e) => dispatch({ type: 'UPDATE_DEPARTURE_DATE', payload: e.target.value })}
             aria-label="Departure date"
           />
         </div>
@@ -152,7 +113,7 @@ const SearchForm = memo(({ searchInput, setSearchInput, onSubmit }: SearchFormPr
             type="date"
             value={searchInput.returnDate || tomorrowDate}
             min={searchInput.departureDate || tomorrowDate}
-            onChange={handleReturnDateChange}
+            onChange={(e) => dispatch({ type: 'UPDATE_RETURN_DATE', payload: e.target.value })}
             aria-label="Return date"
           />
         </div>

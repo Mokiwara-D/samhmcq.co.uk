@@ -1,7 +1,6 @@
 .options {
     display: flex;
     gap: 1rem;
-    overflow-x: hidden;
     width: 100%;
     height: fit-content;
     align-items: center;
@@ -28,7 +27,7 @@
     white-space: wrap;
     opacity: 0.8;
     will-change: background-color, color, transform;
-    transition: background-color 0.3s ease-out, color 0.3s ease-out, transform 0.3s ease-out;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-out;
     border: var(--border);
     border-radius: var(--border-radius);
     padding: 0.5rem 0.6rem;
@@ -50,6 +49,7 @@
     transform: translateY(-3px);
     background-color: var(--blumine);
     color: white;
+    box-shadow: var(--shadow-selected);
 }
 
 .options button.selected img {
