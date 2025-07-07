@@ -435,9 +435,8 @@ main section:nth-child(6) {
 /* ------------------------------ Section Styles ------------------------------ */
 
 section h2 {
-    text-align: center;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-dark);
     margin-bottom: var(--spacing-xl);
 }
