@@ -443,16 +443,13 @@ section h2 {
 
 /* ------------------------------ Holidays to Spain Styles ------------------------------ */
 
-.holidays-to-spain-container {
-    gap: var(--spacing-xl);
-}
-
 .filter-tabs {
     gap: var(--spacing-md);
     flex-wrap: nowrap;
 }
 
 .filter-tab {
+    margin-bottom: var(--spacing-xl);
     background: none;
     border: none;
     padding: var(--spacing-sm);
@@ -716,6 +713,8 @@ footer p {
 
 .contact-info {
     gap: var(--spacing-md);
+    background-color: var(--light-grey);
+    padding: var(--spacing-lg);
 }
 
 .phone,
